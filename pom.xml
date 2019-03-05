@@ -9,7 +9,7 @@
 
 	<name>Ace Editor</name>
 	<artifactId>webjar-ace</artifactId>
-	<version>1.4.3-SNAPSHOT</version>
+	<version>1.4.3</version>
 	<description>JavaScript code editor.</description>
 	
 	<properties>
@@ -41,14 +41,14 @@
 								<get src="${src.url}" dest="${src.zipdir}/src.zip" />
 								<unzip src="${src.zipdir}/src.zip" dest="${src.tmpdir}" />
 								<move todir="${webjar.target}">
-									<fileset dir="${src.rootdir}" includes="LICENSE"/>
+									<fileset dir="${src.rootdir}" includes="LICENSE" />
 								</move>
 								<move todir="${webjar.target}/dist">
 									<fileset dir="${src.rootdir}/src" />
 								</move>
 								<move todir="${webjar.target}/dist">
 									<fileset dir="${src.rootdir}/src-min" />
-									<mapper type="glob" from="*.js" to="*.min.js"/>
+									<mapper type="glob" from="*.js" to="*.min.js" />
 								</move>
 							</target>
 						</configuration>
@@ -57,4 +57,8 @@
 			</plugin>
 		</plugins>
 	</build>
+
+  <scm>
+    <tag>1.4.3</tag>
+  </scm>
 </project>
