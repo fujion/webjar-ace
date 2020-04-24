@@ -15,18 +15,6 @@
 	<properties>
 		<src.url>https://github.com/ajaxorg/ace-builds/archive/v${src.version}.zip</src.url>
 		<src.top>ace-builds-${src.version}</src.top>
-		<systemjs>
-			{
-				"paths": {
-					"ace": "dist"
-				},
-				"meta": {
-					"ace/ace.js": {
-						"format": "global"
-					}
-				}
-			}			
-		</systemjs>
 	</properties>
 	
 	<build>
