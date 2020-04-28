@@ -11,14 +11,18 @@
 	<artifactId>webjar-ace</artifactId>
 	<version>1.4.10-SNAPSHOT</version>
 	<description>JavaScript code editor.</description>
-	
-	<properties>
-		<src.url>https://github.com/ajaxorg/ace-builds/archive/v${src.version}.zip</src.url>
-		<src.top>ace-builds-${src.version}</src.top>
-	</properties>
-	
+
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>npm-install</id>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
@@ -26,18 +30,28 @@
 						<id>precompile</id>
 						<configuration>
 							<target>
-								<get src="${src.url}" dest="${src.zipdir}/src.zip" />
-								<unzip src="${src.zipdir}/src.zip" dest="${src.tmpdir}" />
-								<move todir="${webjar.target}">
-									<fileset dir="${src.rootdir}" includes="LICENSE" />
-								</move>
-								<move todir="${webjar.target}/dist">
-									<fileset dir="${src.rootdir}/src" />
-								</move>
-								<move todir="${webjar.target}/dist">
-									<fileset dir="${src.rootdir}/src-min" />
+								<copy tofile="${src.rootdir}/package.json" file="${basedir}/package-template.json">
+									<filterchain>
+										<expandproperties />
+									</filterchain>
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>postcompile</id>
+						<configuration>
+							<target>
+								<copy todir="${webjar.target}">
+									<fileset dir="${src.rootdir}/node_modules/ace-builds" includes="LICENSE,README.md" />
+								</copy>
+								<copy todir="${webjar.target}/dist">
+									<fileset dir="${src.rootdir}/node_modules/ace-builds/src" />
+								</copy>
+								<copy todir="${webjar.target}/dist">
+									<fileset dir="${src.rootdir}/node_modules/ace-builds/src-min" />
 									<mapper type="glob" from="*.js" to="*.min.js" />
-								</move>
+								</copy>
 							</target>
 						</configuration>
 					</execution>
