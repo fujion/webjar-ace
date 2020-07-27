@@ -9,7 +9,7 @@
 
 	<name>Ace Editor</name>
 	<artifactId>webjar-ace</artifactId>
-	<version>1.4.10-SNAPSHOT</version>
+	<version>1.4.12-SNAPSHOT</version>
 	<description>JavaScript code editor.</description>
 
 	<build>
