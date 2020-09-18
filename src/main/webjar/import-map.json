@@ -1,10 +1,6 @@
 {
-  "paths": {
-    "ace": "dist"
-  },
-  "meta": {
-    "ace/ace.js": {
-      "format": "global"
-    }
+  "imports": {
+    "ace": "dist/ace.js",
+    "ace/": "dist"
   }
 }
