@@ -1,9 +1,10 @@
 {
-  "paths": {
-    "ace": "dist"
+  "map": {
+    "ace-editor": "dist/ace.js",
+    "ace-editor/": "dist/"
   },
   "meta": {
-    "ace/ace.js": {
+    "ace-editor/ace.js": {
       "format": "global"
     }
   }
