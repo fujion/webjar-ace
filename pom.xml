@@ -46,10 +46,10 @@
 									<fileset dir="${src.rootdir}/node_modules/ace-builds" includes="LICENSE,README.md" />
 								</copy>
 								<copy todir="${webjar.target}/dist">
-									<fileset dir="${src.rootdir}/node_modules/ace-builds/src" />
+									<fileset dir="${src.rootdir}/node_modules/ace-builds/src-noconflict" />
 								</copy>
 								<copy todir="${webjar.target}/dist">
-									<fileset dir="${src.rootdir}/node_modules/ace-builds/src-min" />
+									<fileset dir="${src.rootdir}/node_modules/ace-builds/src-min-noconflict" />
 									<mapper type="glob" from="*.js" to="*.min.js" />
 								</copy>
 							</target>
