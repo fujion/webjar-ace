@@ -1,6 +1,6 @@
 {
   "imports": {
-    "ace": "dist/ace.js",
-    "ace/": "dist"
+    "ace-editor": "dist/ace.js",
+    "ace-editor/": "dist/"
   }
 }
