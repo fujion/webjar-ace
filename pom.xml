@@ -33,6 +33,8 @@
 								<rule>file_exists dist/ace.js</rule>
 								<rule>file_exists dist/mode-json.js</rule>
 								<rule>file_exists dist/mode-xml.js</rule>
+								<rule>file_count dist 542</rule>
+								<rule>file_count dist/snippets 370</rule>
 							</rules>
 						</configuration>
 					</execution>
@@ -45,27 +47,11 @@
 						<id>precompile</id>
 						<configuration>
 							<target>
-								<copy tofile="${src.rootdir}/package.json" file="${basedir}/package-template.json">
+								<copy todir="${src.rootdir}">
+									<fileset dir="${basedir}/staging" />
 									<filterchain>
 										<expandproperties />
 									</filterchain>
-								</copy>
-							</target>
-						</configuration>
-					</execution>
-					<execution>
-						<id>postcompile</id>
-						<configuration>
-							<target>
-								<copy todir="${webjar.target}">
-									<fileset dir="${src.rootdir}/node_modules/ace-builds" includes="LICENSE,README.md" />
-								</copy>
-								<copy todir="${webjar.target}/dist">
-									<fileset dir="${src.rootdir}/node_modules/ace-builds/src-noconflict" />
-								</copy>
-								<copy todir="${webjar.target}/dist">
-									<fileset dir="${src.rootdir}/node_modules/ace-builds/src-min-noconflict" />
-									<mapper type="glob" from="*.js" to="*.min.js" />
 								</copy>
 							</target>
 						</configuration>
