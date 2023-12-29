@@ -9,7 +9,7 @@
 
 	<name>Ace Editor</name>
 	<artifactId>webjar-ace</artifactId>
-	<version>1.31.0-SNAPSHOT</version>
+	<version>1.32.2-SNAPSHOT</version>
 	<description>JavaScript code editor.</description>
 
 	<build>
@@ -29,7 +29,7 @@
 								<rule>file_exists dist/ace.js</rule>
 								<rule>file_exists dist/mode-json.js</rule>
 								<rule>file_exists dist/mode-xml.js</rule>
-								<rule>file_count dist 548</rule>
+								<rule>file_count dist 552</rule>
 								<rule>file_count dist/snippets 376</rule>
 							</rules>
 						</configuration>
